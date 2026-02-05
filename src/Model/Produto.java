@@ -2,13 +2,22 @@ package Model;
 
 import Enum.Categoria;
 
-public class Produto {
+public class Produto implements Comparable<Produto>{
     
     private int id;
     private String nome;
     private Categoria categoria;
     private double preco;
     private int quantEmEstoque;
+
+    //Construtor
+    public Produto(int id, String nome, Categoria categoria, double preco, int quantEmEstoque){
+        setId(id);
+        setNome(nome);
+        setCategoria(categoria);
+        setPreco(preco);
+        setQuantEmEstoque(quantEmEstoque);
+    }
 
     //Setters e Getters
     public int getId() {
@@ -67,5 +76,30 @@ public class Produto {
         this.quantEmEstoque = quantEmEstoque;
     }
 
+    //ToString
+    public String toString(){
+        return String.format("|Id:  %-5d |Nome: %-15s |Categoria: %-10s |Preço: %8.2f |Quantidade Estq: %-5d", getId(), getNome(), getCategoria(), getPreco(), getQuantEmEstoque());
+    }
     
+    //Equals
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Produto other = (Produto)obj;
+        return this.getId() == other.getId();
+    }
+
+    //HasCode
+    @Override
+    public int hashCode(){
+        return Integer.hashCode(getId());
+    }
+
+    //Comparable
+    @Override
+    public int compareTo(Produto other){
+        return this.getId() - other.getId();
+    }
 }
