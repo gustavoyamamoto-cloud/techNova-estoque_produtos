@@ -42,35 +42,35 @@ public class Produto implements Comparable<Produto>{
 
 
     public void setId(int id) {
-        if(getId() <= 0){
+        if(id <= 0){
             throw new IllegalArgumentException("Id inválido");
         }
         this.id = id;
     }
     
     public void setNome(String nome) {
-        if(getNome() == null || getNome().trim().isEmpty()){
+        if(nome == null || nome.trim().isEmpty()){
             throw new IllegalArgumentException("Nome inválido");
         }
         this.nome = nome;
     }
     
     public void setCategoria(Categoria categoria) {
-        if(getCategoria() == null){
+        if(categoria == null){
             throw new IllegalArgumentException("Categoria inválida");
         }
         this.categoria = categoria;
     }
     
     public void setPreco(double preco) {
-        if(getPreco() < 0){
+        if(preco < 0){
             throw new IllegalArgumentException("Preço inválido");
         }
         this.preco = preco;
     }
     
     public void setQuantEmEstoque(int quantEmEstoque) {
-        if(getQuantEmEstoque() < 0){
+        if(quantEmEstoque < 0){
             throw new IllegalArgumentException("Quantidade inválida");
         }
         this.quantEmEstoque = quantEmEstoque;

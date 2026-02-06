@@ -59,6 +59,10 @@ public class ServiceProduto {
             throw new ProdutoNaoEncontradoException("Id não encontrado");
         }
 
+        if(novoValor <= 0){
+            throw new EstoqueInsuficienteException("Não pode preço negativo");
+        }
+
         Produto a = map.get(id);
 
         a.setPreco(novoValor);
@@ -69,7 +73,7 @@ public class ServiceProduto {
             throw new ProdutoNaoEncontradoException("Id não encontrado");
         }
 
-        if(valorEntrada > 0){
+        if(valorEntrada < 0){
             throw new EstoqueInsuficienteException("Valor negativo");
         }
 
@@ -86,11 +90,15 @@ public class ServiceProduto {
 
          Produto a = map.get(id);
 
-        if(valorSaida <= 0 && valorSaida < a.getQuantEmEstoque()){
-                throw new EstoqueInsuficienteException("Valor inválido");
+        if (valorSaida <= 0) {
+            throw new IllegalArgumentException("Valor de saída deve ser maior que zero");
         }
 
-        a.setQuantEmEstoque(valorSaida - a.getQuantEmEstoque());
+        if (valorSaida > a.getQuantEmEstoque()) {
+            throw new EstoqueInsuficienteException("Estoque insuficiente");
+        }
+
+        a.setQuantEmEstoque(a.getQuantEmEstoque() - valorSaida);
 
     }
 
