@@ -1,4 +1,4 @@
-->Produto:  
+->F Produto:  
     - id (int) 
     - nome (String) 
     - categoria (String) 
@@ -6,7 +6,7 @@
     - quantidadeEmEstoque (int)
 
 -> Funcionalidades Obrigatórias
-    - Cadastrar produto
+    - F Cadastrar produto
     - Listar todos os produtos
     - Atualizar preço de um produto
     - Entrada de estoque (somar quantidade)
@@ -14,16 +14,16 @@
     - Remover produto por id
 
 -> Regras de Negócio (Validações)
-    - ID do produto não pode se repetir
-    - Nome não pode ser vazio
-    - Preço deve ser maior que zero
-    - Quantidade não pode ser negativa
+    - F ID do produto não pode se repetir
+    - F Nome não pode ser vazio
+    - F Preço deve ser maior que zero
+    - F Quantidade não pode ser negativa
     - Não permitir saída de estoque maior que a quantidade disponível
     - Não permitir remover produto inexistente
-    - Impedir cadastro de dois produtos com o mesmo nome
-    -  Criar exceções personalizadas (ProdutoNaoEncontradoException,                EstoqueInsuficienteException)
+    - F Impedir cadastro de dois produtos com o mesmo nome
+    - F Criar exceções personalizadas (ProdutoNaoEncontradoException,                EstoqueInsuficienteException)
 
--> Enum de categorias
+-> F Enum de categorias
     -NOTEBOOK,
     -COMPUTADOR,
     -PERIFERICO,
